@@ -51,7 +51,11 @@ function App() {
 
 
     // <InputSample> </InputSample>
+    <div>
       <InputSample />
+      <InputSample />
+      <InputSample />
+    </div>
   );
 }
 

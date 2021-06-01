@@ -2,6 +2,7 @@
 import './App.css';
 import Hello from './hello';
 import Wrapper from './Wrapper';
+import Counter from './counter';
 
 function App() {
   const name = 'react';
@@ -30,11 +31,22 @@ function App() {
     //   <Hello />
     // </div>
 
-    <Wrapper>
-      <Hello name = '일번이' color = 'red' isSpecial = {true} />
-      <Hello color = 'blue' isSpecial/>
-      {/* 기본 = true */}
-    </Wrapper>
+    // <Wrapper>
+    //   <Hello name = '일번이' color = 'red' isSpecial = {true} />
+    //   <Hello color = 'blue' isSpecial/>
+    //   {/* 기본 = true 조건부렌더링*/}
+    // </Wrapper>
+
+    // <Counter></Counter>
+    <div>
+    {/* // 클래스의 캡슐화.. 개별적으로 카운터가 달라짐 */}
+      <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
+    </div>
+
+
   );
 }
 

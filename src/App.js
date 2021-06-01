@@ -3,6 +3,7 @@ import './App.css';
 import Hello from './hello';
 import Wrapper from './Wrapper';
 import Counter from './counter';
+import InputSample from './InputSample'
 
 function App() {
   const name = 'react';
@@ -37,16 +38,20 @@ function App() {
     //   {/* 기본 = true 조건부렌더링*/}
     // </Wrapper>
 
+
+    // counter js
     // <Counter></Counter>
-    <div>
-    {/* // 클래스의 캡슐화.. 개별적으로 카운터가 달라짐 */}
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
-    </div>
+    // <div>
+    // {/* // 클래스의 캡슐화.. 개별적으로 카운터가 달라짐 */}
+    //   <Counter />
+    //   <Counter />
+    //   <Counter />
+    //   <Counter />
+    // </div>
 
 
+    // <InputSample> </InputSample>
+      <InputSample />
   );
 }
 

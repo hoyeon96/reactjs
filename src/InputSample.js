@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {useState} from 'react';
 
 function InputSample() {
@@ -14,6 +14,8 @@ function InputSample() {
         name : '',
         nickname : ''
     });
+    const nameInput = useRef();
+
     const {name, nickname} = input;
     const onChange = (e) => {
         const {value, name} = e.target;
@@ -26,8 +28,9 @@ function InputSample() {
             setInput({
                 name: '',
                 nickname: ''
-            });
-        }
+            })
+            nameInput.current.focus();
+        };
     return(
         <div>
             {/* <div>
@@ -38,7 +41,7 @@ function InputSample() {
                 <b>값: {text}</b>
              </div> */}
 
-             <input name = 'name' placeholder = '이름' onChange = {onChange} value = {name}/>
+             <input name = 'name' placeholder = '이름' onChange = {onChange} value = {name} ref = {nameInput}/>
              <input name = 'nickname' placeholder = '닉네임' onChange = {onChange} value = {nickname}/>
              <button onClick = {onReset}> 초기화 </button>
 

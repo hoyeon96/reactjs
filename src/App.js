@@ -3,58 +3,67 @@ import './App.css';
 import Hello from './hello';
 import Wrapper from './Wrapper';
 import Counter from './counter';
-import InputSample from './InputSample'
+import InputSample from './InputSample';
+import CreateUser from './CreateUser';
+import UserList from './UserList';
+import React, {useRef, useState} from 'react';
 
 function App() {
-  const name = 'react';
-  const style = {
-    backgroundColor : 'black',
-    color : 'aqua',
-    fontsize : 24,
-    padding : '1rem'
-  }
+  const [inputs,setInputs] = useState({
+    username:'',
+    email:''
+  });
+
+  const {username, email} = inputs;
+  const onChange = e => {
+    const {name, value} = e.target;
+    setInputs({
+      ...inputs,
+      [name]:value
+    });
+  };
+
+  const [users,setUsers] = useState([
+    {
+        id: 1,
+        username: 'kimtaehun',
+        email: 'dev.hoon@gmail.com'
+    },
+    {
+        id: 2,
+        username: 'tester',
+        email: 'tester@example.com'
+    },
+    {
+        id: 3,
+        username: 'liz',
+        email: 'liz@example.com'
+    }
+  ]);
+  const nextId = useRef(4);
+  const onCreate = () => {
+    const user = {
+      id : nextId.current,
+      username,
+      email
+    };
+    setUsers([...users,user]);
+    setInputs({
+      username : '',
+      email : ''
+    });
+    nextId.current += 1;
+  };
+
   return (
-    // <div>
-    //   {/* 안녕하세용 */}
-    //   {// 안녕하세용 
-    //   }
-
-
-    //   <Hello name = '일번이'/>
-    //   <Hello name = '이번이' color='pink'/>
-    //   <Hello name = '삼번이'/>
-    //   <Hello name = 'react' color='red'/>
-    //   <div style = {style}>{name}</div>
-    //   <div className = {'gray-box'}>{name}</div>
-    //   <Hello />
-    //   <Hello />
-    //   <Hello />
-    //   <Hello />
-    // </div>
-
-    // <Wrapper>
-    //   <Hello name = '일번이' color = 'red' isSpecial = {true} />
-    //   <Hello color = 'blue' isSpecial/>
-    //   {/* 기본 = true 조건부렌더링*/}
-    // </Wrapper>
-
-
-    // counter js
-    // <Counter></Counter>
-    // <div>
-    // {/* // 클래스의 캡슐화.. 개별적으로 카운터가 달라짐 */}
-    //   <Counter />
-    //   <Counter />
-    //   <Counter />
-    //   <Counter />
-    // </div>
-
-
-    // <InputSample> </InputSample>
     <div>
-      <InputSample />
-      <InputSample />
-      <InputSample />
+      <CreateUser 
+        username = {username}
+        email = {email}
+        onChange = {onChange}
+        onCreate = {onCreate}
+      />
+      <UserList users = {users}/>
     </div>
   );
 }

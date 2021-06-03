@@ -71,7 +71,7 @@ function App() {
     setUsers(
       users.map(
         user => user.id === id?
-        {...user, active :!user.active} : user)); //해석해보기
+        {...user, active :!user.active} : user)); //해석해보기 
   }
 
 

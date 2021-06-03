@@ -1,5 +1,19 @@
-import react from 'react';
+import react, {useEffect} from 'react';
 function User({user, onRemove, onToggle}){
+
+    //콜백함수는 요런식으로 저장
+    // useEffect(()=>{
+    //     //컴포넌트가 는 상태에서 실행됨
+    //     console.log('user 값이 입력되었습니다.');
+    //     console.log(user);
+        
+    //     //컴포넌트가 빠지는 상태에서 실행됨
+    //     return () => {
+    //         console.log('user 값이 제거되는중입니다.');
+    //         console.log(user);
+    //     };
+    // },[user]);
+
     return(
         <div>
             <b 

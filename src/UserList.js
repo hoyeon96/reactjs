@@ -1,5 +1,5 @@
-import react, {useEffect} from 'react';
-function User({user, onRemove, onToggle}){
+import React, {useEffect} from 'react';
+const User = React.memo(function User({user, onRemove, onToggle}){
 
     //콜백함수는 요런식으로 저장
     // useEffect(()=>{
@@ -27,7 +27,7 @@ function User({user, onRemove, onToggle}){
             <button onClick={()=> onRemove(user.id)}> 삭제 </button>
         </div>
     );
-}
+});
 
 
 // function UserList() {
@@ -88,4 +88,4 @@ function UserList({users, onRemove, onToggle}) {
         </div>
     )
 }
-export default UserList;
+export default React.memo(UserList);
